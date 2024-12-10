@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dashfxgddwaoh"]
+
+[ext_resource type="Texture2D" uid="uid://di40tw2wtc8xv" path="res://icon.svg" id="1_0uees"]
+[ext_resource type="Script" path="res://player/scripts/player.gd" id="1_qbwmb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lisxu"]
+radius = 49.0
+height = 133.333
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 16
+script = ExtResource("1_qbwmb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.64, 0.92)
+texture = ExtResource("1_0uees")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_lisxu")
+
+[node name="dash_timer" type="Timer" parent="."]
+
+[node name="dash_cooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
