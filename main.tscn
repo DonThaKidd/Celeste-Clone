@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://di40tw2wtc8xv" path="res://icon.svg" id="2_6h7wa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2btt"]
-size = Vector2(128, 129)
+size = Vector2(128, 128.5)
 
 [node name="main" type="Node2D"]
 
@@ -22,4 +22,5 @@ modulate = Color(0, 0, 100, 1)
 texture = ExtResource("2_6h7wa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+position = Vector2(0, 0.25)
 shape = SubResource("RectangleShape2D_o2btt")

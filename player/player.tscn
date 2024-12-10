@@ -1,19 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://dashfxgddwaoh"]
 
-[ext_resource type="Texture2D" uid="uid://di40tw2wtc8xv" path="res://icon.svg" id="1_0uees"]
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_qbwmb"]
+[ext_resource type="Texture2D" uid="uid://bgru7hqiny0eq" path="res://player/char_iris_full.png" id="2_nou1r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lisxu"]
-radius = 49.0
-height = 133.333
+radius = 48.0
+height = 110.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
 script = ExtResource("1_qbwmb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.64, 0.92)
-texture = ExtResource("1_0uees")
+texture = ExtResource("2_nou1r")
+hframes = 16
+vframes = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
