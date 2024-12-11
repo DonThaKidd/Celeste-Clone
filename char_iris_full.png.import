@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgru7hqiny0eq"
-path="res://.godot/imported/char_iris_full.png-cbdb619618613242ef1a4630af6c0294.ctex"
+uid="uid://boxobx60ijmqm"
+path="res://.godot/imported/char_iris_full.png-e9d61b6612d45dbf0fcfb9d4a10a932e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/char_iris_full.png"
-dest_files=["res://.godot/imported/char_iris_full.png-cbdb619618613242ef1a4630af6c0294.ctex"]
+source_file="res://char_iris_full.png"
+dest_files=["res://.godot/imported/char_iris_full.png-e9d61b6612d45dbf0fcfb9d4a10a932e.ctex"]
 
 [params]
 
