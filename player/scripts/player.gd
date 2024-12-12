@@ -2,11 +2,12 @@ class_name player extends CharacterBody2D
 
 ## movement speeds
 const move_speed = 300.0
-const dash_speed = 900.0
+const dash_speed = 750.0
 
 ## dashing variables
 var dashing = false
 var can_dash = true 
+
 ## direction variable for get_input_velocity_h()
 var horizontal = 0.0
 var vertical = 0.0
@@ -15,8 +16,8 @@ var vertical = 0.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 ## jump time graph
-var jump_height : float = 100
-var jump_time_to_peak : float = 0.2
+var jump_height : float = 120
+var jump_time_to_peak : float = 0.3
 var jump_time_to_descent : float = 0.1
 
 ## math found on GDC.
@@ -33,6 +34,8 @@ func _physics_process(delta : float) -> void:
 	if dashing:
 		if get_input_velocity_h() != 0.0:
 			velocity.x = get_input_velocity_h() * dash_speed
+		if get_input_velocity_v() != 0.0:
+			velocity.y = get_input_velocity_v() * dash_speed
 	else:
 		velocity.x = get_input_velocity_h() * move_speed
 
@@ -46,10 +49,11 @@ func _physics_process(delta : float) -> void:
 		dashing = true
 		can_dash = false
 		$dash_timer.start()
+		
 
 ## prevents infinite dashing by resetting once touching the ground.
 	if can_dash == false:
-		if is_on_floor() == true:
+		if is_on_floor() == true and dashing == false:
 			can_dash = true
 
 	move_and_slide()
@@ -79,12 +83,13 @@ func get_input_velocity_h() -> float:
 func get_input_velocity_v() -> float:
 	vertical = 0.0
 
-	if Input.is_action_pressed("down"):
-		vertical -= 1.0
 	if Input.is_action_pressed("up"):
+		vertical -= 1.0
+	if Input.is_action_pressed("down"):
 		vertical += 1.0
 
 	return vertical
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
+	
