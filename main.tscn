@@ -8,12 +8,8 @@ size = Vector2(128, 128.5)
 
 [node name="main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_vfcjs")]
-position = Vector2(80, 470)
-scale = Vector2(0.75, 0.75)
-
 [node name="platform" type="StaticBody2D" parent="."]
-position = Vector2(546, 587)
+position = Vector2(550, 759)
 scale = Vector2(10, 1)
 collision_layer = 16
 
@@ -24,3 +20,19 @@ texture = ExtResource("2_6h7wa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
 position = Vector2(0, 0.25)
 shape = SubResource("RectangleShape2D_o2btt")
+
+[node name="platform2" type="StaticBody2D" parent="."]
+position = Vector2(994, 552)
+scale = Vector2(1.69189, 0.229981)
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="platform2"]
+modulate = Color(0, 0, 100, 1)
+texture = ExtResource("2_6h7wa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform2"]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_o2btt")
+
+[node name="Player" parent="." instance=ExtResource("1_vfcjs")]
+position = Vector2(320, 578)

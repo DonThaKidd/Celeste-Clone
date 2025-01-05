@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dashfxgddwaoh"]
 
-[ext_resource type="Script" path="res://player/scripts/player.gd" id="1_qbwmb"]
+[ext_resource type="Script" path="res://player/scripts/player_rework.gd" id="1_ey7ph"]
 [ext_resource type="Texture2D" uid="uid://boxobx60ijmqm" path="res://char_iris_full.png" id="2_bgsax"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lisxu"]
@@ -9,10 +9,7 @@ height = 102.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
-script = ExtResource("1_qbwmb")
-
-[node name="dash_timer" type="Timer" parent="."]
-wait_time = 0.25
+script = ExtResource("1_ey7ph")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -24,4 +21,11 @@ vframes = 16
 position = Vector2(2, 0)
 shape = SubResource("CapsuleShape2D_lisxu")
 
-[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.2, 1.2)
+position_smoothing_enabled = true
+rotation_smoothing_speed = 3.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 1.0
+drag_vertical_offset = -1.0
