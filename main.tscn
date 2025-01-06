@@ -22,7 +22,7 @@ position = Vector2(0, 0.25)
 shape = SubResource("RectangleShape2D_o2btt")
 
 [node name="platform2" type="StaticBody2D" parent="."]
-position = Vector2(994, 552)
+position = Vector2(999, 234)
 scale = Vector2(1.69189, 0.229981)
 collision_layer = 16
 
@@ -31,6 +31,19 @@ modulate = Color(0, 0, 100, 1)
 texture = ExtResource("2_6h7wa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform2"]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_o2btt")
+
+[node name="platform3" type="StaticBody2D" parent="."]
+position = Vector2(78.9999, 259)
+scale = Vector2(1.45276, -0.172588)
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="platform3"]
+modulate = Color(0, 0, 100, 1)
+texture = ExtResource("2_6h7wa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform3"]
 position = Vector2(0, 0.25)
 shape = SubResource("RectangleShape2D_o2btt")
 

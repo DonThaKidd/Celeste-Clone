@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dashfxgddwaoh"]
+[gd_scene load_steps=5 format=3 uid="uid://dashfxgddwaoh"]
 
 [ext_resource type="Script" path="res://player/scripts/player_rework.gd" id="1_ey7ph"]
 [ext_resource type="Texture2D" uid="uid://boxobx60ijmqm" path="res://char_iris_full.png" id="2_bgsax"]
+[ext_resource type="Script" path="res://Grapple-Hook/scripts/grapple_controller.gd" id="3_6gqpa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lisxu"]
 radius = 33.0
@@ -22,10 +23,19 @@ position = Vector2(2, 0)
 shape = SubResource("CapsuleShape2D_lisxu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 rotation_smoothing_speed = 3.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_horizontal_offset = 1.0
 drag_vertical_offset = -1.0
+
+[node name="GrappleController" type="Node2D" parent="."]
+script = ExtResource("3_6gqpa")
+
+[node name="RayCast2D" type="RayCast2D" parent="GrappleController"]
+target_position = Vector2(800, 0)
+collision_mask = 16
+
+[node name="Line2D" type="Line2D" parent="GrappleController"]
+points = PackedVector2Array(0, 0, 0, 0)
