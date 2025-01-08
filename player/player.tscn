@@ -9,7 +9,7 @@ radius = 33.0
 height = 102.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 16
+collision_mask = 18
 script = ExtResource("1_ey7ph")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -39,3 +39,15 @@ collision_mask = 16
 
 [node name="Line2D" type="Line2D" parent="GrappleController"]
 points = PackedVector2Array(0, 0, 0, 0)
+
+[node name="Dash" type="Node2D" parent="."]
+
+[node name="dash_timer" type="Timer" parent="Dash"]
+wait_time = 0.25
+
+[node name="dash_cooldown" type="Timer" parent="Dash"]
+wait_time = 1.5
+
+[connection signal="timeout" from="Dash/dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash/dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="Dash/dash_cooldown" to="." method="_on_dash_timer_timeout"]

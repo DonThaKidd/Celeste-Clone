@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://kjwv0djj2s2d"]
+[gd_scene load_steps=5 format=3 uid="uid://kjwv0djj2s2d"]
 
 [ext_resource type="PackedScene" uid="uid://dashfxgddwaoh" path="res://player/player.tscn" id="1_vfcjs"]
 [ext_resource type="Texture2D" uid="uid://di40tw2wtc8xv" path="res://icon.svg" id="2_6h7wa"]
+[ext_resource type="PackedScene" uid="uid://csatwjqjx5te1" path="res://canvas_layer.tscn" id="3_rvqno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2btt"]
 size = Vector2(128, 128.5)
 
 [node name="main" type="Node2D"]
 
+[node name="GUI" type="Node2D" parent="."]
+
+[node name="CanvasLayer" parent="GUI" instance=ExtResource("3_rvqno")]
+
 [node name="platform" type="StaticBody2D" parent="."]
 position = Vector2(550, 759)
-scale = Vector2(10, 1)
+scale = Vector2(27.1728, 1.172)
 collision_layer = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="platform"]
