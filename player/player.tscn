@@ -32,6 +32,7 @@ drag_vertical_offset = -1.0
 
 [node name="GrappleController" type="Node2D" parent="."]
 script = ExtResource("3_6gqpa")
+stiffness = 35.0
 
 [node name="RayCast2D" type="RayCast2D" parent="GrappleController"]
 target_position = Vector2(800, 0)
@@ -39,6 +40,12 @@ collision_mask = 16
 
 [node name="Line2D" type="Line2D" parent="GrappleController"]
 points = PackedVector2Array(0, 0, 0, 0)
+
+[node name="grapple_cooldown" type="Timer" parent="GrappleController"]
+wait_time = 0.75
+
+[node name="grapple_timer" type="Timer" parent="GrappleController"]
+wait_time = 3.0
 
 [node name="Dash" type="Node2D" parent="."]
 
@@ -48,6 +55,8 @@ wait_time = 0.25
 [node name="dash_cooldown" type="Timer" parent="Dash"]
 wait_time = 1.5
 
+[connection signal="timeout" from="GrappleController/grapple_cooldown" to="GrappleController" method="_on_grapple_cooldown_timeout"]
+[connection signal="timeout" from="GrappleController/grapple_timer" to="GrappleController" method="_on_grapple_timer_timeout"]
 [connection signal="timeout" from="Dash/dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="Dash/dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="Dash/dash_cooldown" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash/dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

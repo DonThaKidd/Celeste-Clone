@@ -10,12 +10,17 @@ class_name grapple_controller extends Node2D
 
 var launched = false
 var target : Vector2
+var can_grapple = true
 
 func _process(delta):
 	raycast.look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("Grapple"):
+	if Input.is_action_just_pressed("Grapple") and can_grapple:
 		launch()
+		$grapple_cooldown.start()
+		$grapple_timer.start()
+		can_grapple = false
+
 	if Input.is_action_just_released("Grapple"):
 		retract()
 	if launched:
@@ -53,3 +58,11 @@ func handle_grapple(delta):
 
 func update_rope():
 	rope.set_point_position(1, to_local(target))
+
+
+func _on_grapple_cooldown_timeout() -> void:
+	can_grapple = true
+
+
+func _on_grapple_timer_timeout() -> void:
+	retract()

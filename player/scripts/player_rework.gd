@@ -9,8 +9,10 @@ const DASH_SPEED = 900.0
 var dashing = false
 var can_dash = true
 
-@onready var gc := $GrappleController
+var hp = 3
 
+@onready var gc := $GrappleController
+@onready var GUI := $"../GUI/CanvasLayer"
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -43,7 +45,6 @@ func _physics_process(delta):
 	
 	
 	input_direction = round(input_direction)  # Normalize diagonal movement
-	print(input_direction)
 	
 	if Input.is_action_just_pressed("dash") and can_dash:
 		dashing = true
@@ -70,9 +71,8 @@ func _physics_process(delta):
 ## prevents jumping infinitely
 	if Input.is_action_pressed("jump") && (is_on_floor() || gc.launched):
 		jump()
+		take_damage()
 		gc.retract()
-
-
 
 	## Move the player
 	move_and_slide()
@@ -84,6 +84,12 @@ func get_grav() -> float:
 func jump() -> void:
 	velocity.y = jump_vel
 
+func take_damage() -> void:
+	if hp > 0: 
+		hp = hp - 1
+		GUI.update_hp()
+	elif hp == 0:
+		print("died")
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
