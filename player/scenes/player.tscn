@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dashfxgddwaoh"]
 
-[ext_resource type="Script" path="res://player/scripts/player_rework.gd" id="1_ey7ph"]
+[ext_resource type="Script" path="res://player/scripts/player.gd" id="1_ey7ph"]
 [ext_resource type="Texture2D" uid="uid://boxobx60ijmqm" path="res://char_iris_full.png" id="2_bgsax"]
 [ext_resource type="Script" path="res://Grapple-Hook/scripts/grapple_controller.gd" id="3_6gqpa"]
 
@@ -58,5 +58,5 @@ wait_time = 1.5
 [connection signal="timeout" from="GrappleController/grapple_cooldown" to="GrappleController" method="_on_grapple_cooldown_timeout"]
 [connection signal="timeout" from="GrappleController/grapple_timer" to="GrappleController" method="_on_grapple_timer_timeout"]
 [connection signal="timeout" from="Dash/dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="Dash/dash_cooldown" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Dash/dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="Dash/dash_cooldown" to="." method="_on_dash_timer_timeout"]

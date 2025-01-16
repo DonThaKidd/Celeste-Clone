@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://0k0bvxqi4tno"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_gjpp2"]
+[ext_resource type="Texture2D" uid="uid://di40tw2wtc8xv" path="res://icon.svg" id="1_p6sm8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkopo"]
+radius = 63.0
+height = 130.0
+
+[node name="enemy" type="CharacterBody2D"]
+scale = Vector2(0.581456, 0.559999)
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_gjpp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p6sm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rkopo")
+
+[node name="DirectionTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]

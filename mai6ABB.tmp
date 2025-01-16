@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://kjwv0djj2s2d"]
+[gd_scene load_steps=5 format=3 uid="uid://kjwv0djj2s2d"]
 
 [ext_resource type="PackedScene" uid="uid://dashfxgddwaoh" path="res://player/scenes/player.tscn" id="1_vfcjs"]
 [ext_resource type="Texture2D" uid="uid://di40tw2wtc8xv" path="res://icon.svg" id="2_6h7wa"]
 [ext_resource type="PackedScene" uid="uid://csatwjqjx5te1" path="res://GUI/scenes/Lives.tscn" id="3_rvqno"]
-[ext_resource type="PackedScene" uid="uid://cwv5x7jvncx0o" path="res://spikes.tscn" id="4_mh3vm"]
-[ext_resource type="PackedScene" uid="uid://0k0bvxqi4tno" path="res://enemy.tscn" id="5_ab88x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2btt"]
 size = Vector2(128, 128.5)
@@ -58,9 +56,3 @@ shape = SubResource("RectangleShape2D_o2btt")
 
 [node name="Player" parent="." instance=ExtResource("1_vfcjs")]
 position = Vector2(320, 578)
-
-[node name="spikes" parent="." instance=ExtResource("4_mh3vm")]
-position = Vector2(756, 677)
-
-[node name="enemy" parent="." instance=ExtResource("5_ab88x")]
-position = Vector2(613, 319)
